@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+
+<html>
+
+<!DOCTYPE html>
+
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<link rel="canonical" href="https://html5-templates.com/" />
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script src="script.js"></script>	
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	<title>Windows Template</title>
+</head>
+<body>
+	<div id="desktop">
+		<div class="window" data-title="First">
+			Window content
+		</div>
+		<div class="window" data-title="Second">
+			Second Window
+		</div>
+		<div class="window closed" data-title="Flappyblock">
+
+
+
+
+
+	
+	</div>
+		<div class="window" data-title="Welcome">
+			<p1>Hello Welcome to pyxisOSv1.0</p1>
+		</div>
+		
+		<div id="taskbar">	
+	<canvas id="canvas" width="60" height="60"
+style="background-color:#333">
+		</div>
+
+		<a href="https://html5-templates.com/">Html-templates.com</a>
+		<div id="icons">
+			<a class="openWindow" data-id="0">Open first</a>
+			<a class="openWindow" data-id="1">Open second</a>
+			<a class="openWindow" data-id="2">Flappy-block</a>
+			<a class="openWindow" data-id="3">Welcome screen</a>
+		</div>
+	
+
+	</div>
+</body>
+
+</html>
+</html>
+</html>
+<style>
+/*        Your CSS Code Goes Here           *//*        Your CSS Code Goes Here           */
+
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}
+body{line-height:1}
+h1 {font-size: 1.5em;margin-bottom: 10px;}
+p{font-size: 1em;line-height: 1.3em;margin-bottom: 10px;}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
+nav ul{list-style:none}
+blockquote,q{quotes:none}
+blockquote:before,blockquote:after,q:before,q:after{content:none}
+a{margin:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent}
+ins{background-color:#ff9;color:#000;text-decoration:none}
+mark{background-color:#ff9;color:#000;font-style:italic;font-weight:bold}
+del{text-decoration:line-through}
+abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help}
+table{border-collapse:collapse;border-spacing:0}
+hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0}
+input,select{vertical-align:middle}
+
+#desktop {
+	font-family: Arial, Helvetica, sans-serif;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background: #CCC;
+	overflow: hidden;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.window {
+    position: absolute;
+    border: 2px solid #000;
+    background: #EEE;
+	border-radius: 5px;
+	z-index: 1000;
+}
+.window.closed {
+	display: none;
+}
+.window.minimizedWindow {
+	display: none;
+}
+.window.fullSizeWindow {
+    top: 0 !important;
+    right: 0 !important;
+    left: 0 !important;
+    border-radius: 0;
+    bottom: 32px !important;
+}
+.fullSizeWindow .ui-resizable-handle {
+	display: none;
+}
+.windowHeader {
+    background-color: #b7b7e0;
+    text-align: right;
+    border-bottom: 2px solid #000;
+    padding: 2px;
+    cursor: move;
+    height: 28px;
+}
+.activeWindow .windowHeader {
+    background-color: #8888d6;
+}
+.windowHeader > span {
+    display: inline-block;
+    cursor: pointer;
+    border: 2px solid #000;
+    margin-left: 4px;
+    font-size: 19px;
+    padding: 2px 10px;
+    font-family: "Arial Black", Gadget, sans-serif;
+    border-radius: 5px;
+    line-height: 20px;
+    width: 12px;
+    height: 20px;
+    position: relative;
+    overflow: hidden;
+}
+.windowHeader > span:hover {
+	background: rgba(255,255,255,0.3);
+}
+.windowHeader > span.winclose:hover {
+	background: #f15454;
+}
+.windowHeader > span > span {
+    display: inline-block;
+    height: 8px;
+    width: 10px;
+    position: absolute;
+    top: 6px;
+    left: 10px;
+}
+.winminimize > span {
+	border-bottom: 3px solid #000;
+}
+.winmaximize > span {
+	border: 2px solid #000;
+	border-top: 3px solid #000;
+}
+.winmaximize > span:nth-child(2) {
+	display: none;
+}
+.fullSizeWindow .winmaximize > span:nth-child(1) {
+	margin: 2px 0 0 -4px;
+}
+.fullSizeWindow .winmaximize > span:nth-child(2) {
+    display: inline-block;
+    top: 3px;
+    left: 12px;
+}
+.wincontent {
+    padding: 10px;
+    min-width: 200px;
+    min-height: 140px;
+    border: 2px solid #000;
+    margin: 2px;
+	border-radius: 0 0 5px 5px;
+}
+.windowHeader > strong {
+    float: left;
+    margin: 0px 3px 0 10px;
+    line-height: 29px;
+    font-size: 17px;
+}
+.taskbarPanel {
+    display: inline-block;
+    border: 2px solid #000;
+    border-radius: 5px;
+    line-height: 24px;
+    margin: 2px 0 0 10px;
+    font-size: 17px;
+    padding: 0 10px;
+    background: #CCC;
+    font-weight: bold;
+	cursor: pointer;
+}
+.taskbarPanel.activeTab {
+	background: #FFF;
+}
+.taskbarPanel.minimizedTab {
+	background: #AAA;	
+}
+.taskbarPanel.minimizedTab:hover {
+	background: #DDD;
+}
+.taskbarPanel.closed {
+	display: none;
+}
+#taskbar {
+	position: absolute;
+	height: 50px;
+	border-top: 2px solid #000;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: #EEE;
+}
+#icons {
+	position: absolute;
+	z-index: 10;
+	top: 20px;
+	left: 20px;
+}
+#icons a {
+    display: block;
+    cursor: pointer;
+    padding: 2px 10px;
+}
+#icons a:hover {
+	background: #000;
+	color: #FFF;
+}
+#templateLink {
+    position: absolute;
+    display: inline-block;
+    bottom: 10px;
+    right: 20px;
+    font-weight: bold;
+    font-size: 15px;
+    color: #30478c;
+}
+
+/*Demo styles BEGIN*/
+#window0 {	top: 20px;	left: 240px;}
+#window1 {	top: 400px; left: 120px;}
+#window2 {	top: 250px; left: 300px;}
+#window3 {	top: 125px; left: 420px;}
+#window0 .wincontent {	width: 660px; height: 400px;	}
+#window1 .wincontent {	width: 500px; height: 300px;	}
+#window2 .wincontent {	width: 400px; height: 350px;	}
+#window3 .wincontent {	width: 400px; height: 350px;	}
+@media screen and (max-width:960px){
+	#window0 {	left: 10px;	}
+	#window3 {	left: 50px;	}	
+}
+@media screen and (max-width:770px){
+	#window0 .wincontent {	width: 460px;	}
+	#window2 {	left: 100px;	}
+	#window1 {	top: 190px;	left: -5px;	}
+}
+@media screen and (max-width:540px){
+#window0 .wincontent {	width: 230px; height: 200px;	}
+#window3 .wincontent {
+    width: 275px;
+    height: auto;
+}
+#window3 {    top: 9px;  left: 10px;	}
+#window2 {    left: -118px;	}
+#window1 .wincontent {    width: auto;    height: 300px;	}
+
+ 
+
+
+</style>
+<script>
+/*     Your JAVASCRIPT Code Goes Here       */var i = 0,
+minimizedWidth = new Array,
+minimizedHeight = new Array,
+windowTopPos = new Array,
+windowLeftPos = new Array,
+panel,
+id;
+
+function adjustFullScreenSize() {
+	$(".fullSizeWindow .wincontent").css("width", (window.innerWidth - 32));
+	$(".fullSizeWindow .wincontent").css("height", (window.innerHeight - 98));
+}
+function makeWindowActive(thisid) {
+	$(".window").each(function() {      
+		$(this).css('z-index', $(this).css('z-index') - 1);
+	});
+	$("#window" + thisid).css('z-index',1000);
+	$(".window").removeClass("activeWindow");
+	$("#window" + thisid).addClass("activeWindow");
+	
+	$(".taskbarPanel").removeClass('activeTab');
+	
+	$("#minimPanel" + thisid).addClass("activeTab");
+}
+
+function minimizeWindow(id){
+	windowTopPos[id] = $("#window" + id).css("top");
+	windowLeftPos[id] = $("#window" + id).css("left");
+	
+	$("#window" + id).animate({
+		top: 800,
+		left: 0
+	}, 200, function() {		//animation complete
+		$("#window" + id).addClass('minimizedWindow');
+		$("#minimPanel" + id).addClass('minimizedTab');
+		$("#minimPanel" + id).removeClass('activeTab');
+	});	
+}
+
+function openWindow(id) {
+	if ($('#window' + id).hasClass("minimizedWindow")) {
+		openMinimized(id);
+	} else {	
+		makeWindowActive(id);
+		$("#window" + id).removeClass("closed");
+		$("#minimPanel" + id).removeClass("closed");
+	}
+}
+function closeWindwow(id) {
+	$("#window" + id).addClass("closed");
+	$("#minimPanel" + id).addClass("closed");
+}
+
+function openMinimized(id) {
+	$('#window' + id).removeClass("minimizedWindow");
+	$('#minimPanel' + id).removeClass("minimizedTab");
+	makeWindowActive(id);
+		
+	$('#window' + id).animate({
+		top: windowTopPos[id],
+		left: windowLeftPos[id]
+	}, 200, function() {
+	});				
+}
+
+$(document).ready(function(){
+	$(".window").each(function() {      		// window template
+		$(this).css('z-index',1000)
+		$(this).attr('data-id', i);
+		minimizedWidth[i] = $(this).width();
+		minimizedHeight[i] = $(this).height();
+		windowTopPos[i] = $(this).css("top");
+		windowLeftPos[i] = $(this).css("left");
+		$("#taskbar").append('<div class="taskbarPanel" id="minimPanel' + i + '" data-id="' + i + '">' + $(this).attr("data-title") + '</div>');
+		if ($(this).hasClass("closed")) {	$("#minimPanel" + i).addClass('closed');	}		
+		$(this).attr('id', 'window' + (i++));
+		$(this).wrapInner('<div class="wincontent"></div>');
+		$(this).prepend('<div class="windowHeader"><strong>' + $(this).attr("data-title") + '</strong><span title="Minimize" class="winminimize"><span></span></span><span title="Maximize" class="winmaximize"><span></span><span></span></span><span title="Close" class="winclose">x</span></div>');
+	});
+	
+	$("#minimPanel" + (i-1)).addClass('activeTab');
+	$("#window" + (i-1)).addClass('activeWindow');
+	
+	$( ".wincontent" ).resizable();			// resizable
+	$( ".window" ).draggable({ cancel: ".wincontent" });	// draggable
+	
+
+    $(".window").mousedown(function(){		// active window on top (z-index 1000)
+		makeWindowActive($(this).attr("data-id"));
+    });
+	
+    $(".winclose").click(function(){		// close window
+		closeWindwow($(this).parent().parent().attr("data-id"));
+    });	
+
+    $(".winminimize").click(function(){		// minimize window
+		minimizeWindow($(this).parent().parent().attr("data-id"));
+    });	
+	
+    $(".taskbarPanel").click(function(){		// taskbar click
+		id = $(this).attr("data-id");
+		if ($(this).hasClass("activeTab")) {	// minimize if active
+			minimizeWindow($(this).attr("data-id"));
+		} else {
+			if ($(this).hasClass("minimizedTab")) {	// open if minimized
+				openMinimized(id);
+			} else {								// activate if inactive
+				makeWindowActive(id);
+			}
+		}
+    });	
+	
+    $(".openWindow").click(function(){		// open closed window
+		openWindow($(this).attr("data-id"));
+    });
+	
+    $(".winmaximize").click(function(){
+		if ($(this).parent().parent().hasClass('fullSizeWindow')) {			// minimize
+			
+			$(this).parent().parent().removeClass('fullSizeWindow');
+			$(this).parent().parent().children(".wincontent").height(minimizedHeight[$(this).parent().parent().attr("data-id")]);	
+			$(this).parent().parent().children(".wincontent").width(minimizedWidth[$(this).parent().parent().attr("data-id")]);
+		} else {															// maximize
+			$(this).parent().parent().addClass('fullSizeWindow');
+			
+			minimizedHeight[$(this).parent().parent().attr('data-id')] = $(this).parent().parent().children(".wincontent").height();
+			minimizedWidth[$(this).parent().parent().attr('data-id')] = $(this).parent().parent().children(".wincontent").width();
+			
+			adjustFullScreenSize();
+		}
+    });		
+	adjustFullScreenSize();	
+});
+
+
+///////////Clock//////!
+
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+var radius = canvas.height / 2;
+ctx.translate(radius, radius);
+radius = radius * 0.90
+setInterval(drawClock, 1000);
+
+function drawClock() {
+  drawFace(ctx, radius);
+  drawNumbers(ctx, radius);
+  drawTime(ctx, radius);
+}
+
+function drawFace(ctx, radius) {
+  var grad;
+  ctx.beginPath();
+  ctx.arc(0, 0, radius, 0, 2*Math.PI);
+  ctx.fillStyle = 'white';
+  ctx.fill();
+  grad = ctx.createRadialGradient(0,0,radius*0.95, 0,0,radius*1.05);
+  grad.addColorStop(0, '#333');
+  grad.addColorStop(0.5, 'white');
+  grad.addColorStop(1, '#333');
+  ctx.strokeStyle = grad;
+  ctx.lineWidth = radius*0.1;
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.arc(0, 0, radius*0.1, 0, 2*Math.PI);
+  ctx.fillStyle = '#333';
+  ctx.fill();
+}
+
+function drawNumbers(ctx, radius) {
+  var ang;
+  var num;
+  ctx.font = radius*0.15 + "px arial";
+  ctx.textBaseline="middle";
+  ctx.textAlign="center";
+  for(num = 1; num < 13; num++){
+    ang = num * Math.PI / 6;
+    ctx.rotate(ang);
+    ctx.translate(0, -radius*0.85);
+    ctx.rotate(-ang);
+    ctx.fillText(num.toString(), 0, 0);
+    ctx.rotate(ang);
+    ctx.translate(0, radius*0.85);
+    ctx.rotate(-ang);
+  }
+}
+
+function drawTime(ctx, radius){
+    var now = new Date();
+    var hour = now.getHours();
+    var minute = now.getMinutes();
+    var second = now.getSeconds();
+    //hour
+    hour=hour%12;
+    hour=(hour*Math.PI/6)+
+    (minute*Math.PI/(6*60))+
+    (second*Math.PI/(360*60));
+    drawHand(ctx, hour, radius*0.5, radius*0.07);
+    //minute
+    minute=(minute*Math.PI/30)+(second*Math.PI/(30*60));
+    drawHand(ctx, minute, radius*0.8, radius*0.07);
+    // second
+    second=(second*Math.PI/30);
+    drawHand(ctx, second, radius*0.9, radius*0.02);
+}
+
+function drawHand(ctx, pos, length, width) {
+    ctx.beginPath();
+    ctx.lineWidth = width;
+    ctx.lineCap = "round";
+    ctx.moveTo(0,0);
+    ctx.rotate(pos);
+    ctx.lineTo(0, -length);
+    ctx.stroke();
+    ctx.rotate(-pos);
+}
+</script>
