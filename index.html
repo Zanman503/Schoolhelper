@@ -183,10 +183,10 @@ function clickCounter() {
         
         function worker() {
             timer = setInterval(function() {
-                if (localStorage.clickcount) {
-      localStorage.clickcount = Number(localStorage.clickcount)+1;
+                if (localStorage.worker) {
+      localStorage.worker = Number(localStorage.worker)+1;
     } else {
-      localStorage.clickcount = 1;
+      localStorage.worker = 1;
     }
     document.getElementById("result").innerHTML = "Metal " + localStorage.clickcount + " clicked";
             }, 1000);
