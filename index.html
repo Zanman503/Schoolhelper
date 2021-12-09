@@ -213,7 +213,6 @@ function clickCounter() {
    <!--Endfarm-->
  <script>
      function bank() {
-          timer = setInterval(function() {
   if (typeof(Storage) !== "undefined") {
     if (localStorage.clickcount) {
       localStorage.clickcount = Number(localStorage.clickcount)+10;
@@ -225,8 +224,7 @@ function clickCounter() {
     document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
   }
 }
-      }, 3000);
-        }
+      
         </script>
         
    </body>
