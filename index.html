@@ -213,16 +213,16 @@ function clickCounter() {
 </script>
    <!--Endfarm-->
  <script>
-  
-        function b() {
+  function b() {
             timer = setInterval(function() {
                 if (localStorage.clickcount) {
-      localStorage.clickcount = Number(localStorage.clickcount)+10;
+      localStorage.clickcount = Number(localStorage.clickcount)+5;
     } else {
       localStorage.clickcount = 1;
     }
-    document.getElementById("money").innerHTML = "Money in Bank " + localStorage.clickcount + "$";
+    document.getElementById("result").innerHTML = "Metal " + localStorage.clickcount + " clicked";
             }, 3000);
+        }
         </script>
         
    </body>
