@@ -125,9 +125,10 @@ localStorage.clear();
        
 <er>
 <div id="result"></div>
+    <div id="money"></div>
 </er>
 </counterbutton>
-
+ 
 <!--clickerStyle-->
 <style>
 .center {
@@ -220,7 +221,7 @@ function clickCounter() {
     } else {
       localStorage.clickcount = 1;
     }
-    document.getElementById("result").innerHTML = "Metal " + localStorage.clickcount + " clicked";
+    document.getElementById("money").innerHTML = "Money in Bank " + localStorage.clickcount + "$";
             }, 3000);
         </script>
         
