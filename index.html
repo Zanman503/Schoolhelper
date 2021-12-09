@@ -211,7 +211,20 @@ function clickCounter() {
         }
 </script>
    <!--Endfarm-->
- 
+ <script>
+     function bank() {
+  if (typeof(Storage) !== "undefined") {
+    if (localStorage.clickcount) {
+      localStorage.clickcount = Number(localStorage.clickcount)+10;
+    } else {
+      localStorage.clickcount = 1;
+    }
+    document.getElementById("result").innerHTML = "Metal " + localStorage.clickcount + " clicked";
+  } else {
+    document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+  }
+}
+        </script>
         
    </body>
 
