@@ -20,7 +20,7 @@
     <div class="dropdown-content">
       <p><button onclick="worker()" onclick="worker1()" type="button">Steelworker</button></p>
       <p><button onclick="farm()" type="button">Steel-Farm</button></p>
-
+      <p><button onclick="bank()" type="button">Steel-Bank</button></p>
 </div> 
 </div>
 
@@ -211,6 +211,20 @@ function clickCounter() {
         }
 </script>
    <!--Endfarm-->
+        <!--backstart-->
+             function bank() {
+            timer = setInterval(function() {
+                if (localStorage.clickcount) {
+      localStorage.clickcount = Number(localStorage.clickcount)+10;
+    } else {
+      localStorage.clickcount = 1;
+    }
+    document.getElementById("result").innerHTML = "Metal " + localStorage.clickcount + " clicked";
+            }, 5000);
+        }
+</script>
+   <!--Endbank-->     
+        
    </body>
 
 </html>
