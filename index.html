@@ -21,6 +21,7 @@
       <p><button onclick="worker()" onclick="worker1()" type="button">Steelworker</button></p>
       <p><button onclick="farm()" type="button">Steel-Farm</button></p>
       <p><button onclick="b()" type="button">Steel-Bank</button></p>
+        <p><button onclick="mine()" type="button">Steel-Mine</button></p>
 </div> 
 </div>
 
@@ -225,6 +226,34 @@ function clickCounter() {
         }
         </script>
         
+        <!--Mine-->
+        
+        <script>
+        
+        function mine() {
+            timer = setInterval(function() {
+                if (localStorage.clickcount) {
+      localStorage.clickcount = Number(localStorage.clickcount)+20;
+    } else {
+      localStorage.clickcount = 1;
+    }
+    document.getElementById("result").innerHTML = "Metal " + localStorage.clickcount + " clicked";
+            }, 3000);
+        }
+</script>
+   <!--Endfarm-->
+ <script>
+  function b() {
+            timer = setInterval(function() {
+                if (localStorage.clickcount) {
+      localStorage.clickcount = Number(localStorage.clickcount)+5;
+    } else {
+      localStorage.clickcount = 1;
+    }
+    document.getElementById("result").innerHTML = "Metal " + localStorage.clickcount + " clicked";
+            }, 5000);
+        }
+        </script>
    </body>
 
 </html>
