@@ -302,7 +302,17 @@ function clickCounter() {
     }
     document.getElementById("result").innerHTML = "Metal " + localStorage.clickcount + " clicked";
             }, 5000);
-        }
+        
+    timer = setInterval(function() {
+                if (localStorage.clickcount) {
+      localStorage.clickcount = Number(localStorage.clickcount)-1000;
+    } else {
+      localStorage.clickcount = 1;
+    }
+    document.getElementById("result").innerHTML = "Metal " + localStorage.clickcount + " clicked";
+  
+  
+  }
         </script>
    </body>
 
