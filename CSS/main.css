@@ -1,6 +1,6 @@
 
 body {
-  background-color:pink;
+  background-color: lightblue;
 }
 
 .center {
@@ -17,6 +17,6 @@ td {
 
 thead,
 tfoot {
-    background-color: #69;
+    background-color: #333;
     color: #fff;
 }
