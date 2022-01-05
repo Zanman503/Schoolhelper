@@ -294,11 +294,21 @@ function clickCounter() {
       localStorage.clickcount = 1;
     }
     document.getElementById("result").innerHTML = "Metal " + localStorage.clickcount + " clicked";
-            }, 1000);
+            }, 9000);
         
     
     
         </script>
+
+        <script language=”javascript”>
+
+function trackUser(){
+  alert("You are Now leaving this page WARNING: Workers are not saved ");
+}
+
+window.onbeforeunload = function(){ trackUser(); }
+</script>
+
    </body>
 
 </html>
