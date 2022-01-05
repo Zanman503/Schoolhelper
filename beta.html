@@ -4,7 +4,7 @@
 <html>
     <head>
         <meta charset="utf-8"
-             
+             <title> Steel_Clicker </title>
               </head>
     <body>
   
@@ -14,15 +14,16 @@
 <div class="navbar">
   
   <a href="update.html">News and updates</a>
-   <p><button onclick="clickreset()" type="button">Resetgame</button></p>
+   <p><button onclick="clickreset()" type="button">Restartgame</button></p>
   <div class="dropdown">
-    <button class="dropbtn">buy Workers
+    <button class="dropbtn"> Workers
       <i class="fa fa-caret-down"></i></button>
     <div class="dropdown-content">
       <p><button onclick="worker()" onclick="worker1()" type="button">Steelworker</button></p>
       <p><button onclick="farm()" type="button">Steel-Farm</button></p>
       <p><button onclick="b()" type="button">Steel-Bank</button></p>
-        <p><button onclick="mine()" type="button">Steel-Mine</button></p>
+      <p><button onclick="mine()" type="button">Steel-Mine</button></p>
+      <p><button onclick="Trade()" type="button">Steel-Trader</button></p>
 </div> 
 </div>
 
@@ -280,19 +281,25 @@ function clickCounter() {
     document.getElementById("result").innerHTML = "Metal " + localStorage.clickcount + " clicked";
             }, 5000);
         
-    timer = setInterval(function() {
+    
+    
+        </script>
+<!--Steel trader-->
+        <script>
+  function Trade() {
+            timer = setInterval(function() {
                 if (localStorage.clickcount) {
-      localStorage.clickcount = Number(localStorage.clickcount)-1000;
+      localStorage.clickcount = Number(localStorage.clickcount)+20;
     } else {
       localStorage.clickcount = 1;
     }
     document.getElementById("result").innerHTML = "Metal " + localStorage.clickcount + " clicked";
-  
-  
-  }
+            }, 1000);
+        
+    
+    
         </script>
    </body>
 
 </html>
-© 2021 GitHub, Inc.
-Terms
+
