@@ -319,6 +319,18 @@ function clickCounter() {
     
     </script>
     
+<!--Unload--!>
+
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>  
+    <script>
+  $(document).ready(function(){
+    $(window).on('beforeunload',function(){
+      return '';
+    });
+  });
+  </script>
+
+
    </body>
 
 </html>
